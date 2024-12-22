@@ -1,20 +1,24 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
-
 package frc.robot;
 
-import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.Commands;
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.commands.ElevatorUp;
+import frc.robot.commands.ElevatorDown;
+import frc.robot.subsystems.KrakenMotorSubsystem;
 
 public class RobotContainer {
-  public RobotContainer() {
-    configureBindings();
-  }
+    private final KrakenMotorSubsystem elevator = new KrakenMotorSubsystem();
+    private final Joystick joystick = new Joystick(frc.robot.Constants.JoystickConstants.JOYSTICK_PORT);
 
-  private void configureBindings() {}
+    public RobotContainer() {
+        configureButtonBindings();
+    }
 
-  public Command getAutonomousCommand() {
-    return Commands.print("No autonomous command configured");
-  }
+    private void configureButtonBindings() {
+        new JoystickButton(joystick, frc.robot.Constants.JoystickConstants.UP_BUTTON)
+            .whileHeld(new ElevatorUp(elevator));
+
+        new JoystickButton(joystick, frc.robot.Constants.JoystickConstants.DOWN_BUTTON)
+            .whileHeld(new ElevatorDown(elevator));
+    }
 }
