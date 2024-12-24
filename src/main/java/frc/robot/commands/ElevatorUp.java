@@ -13,7 +13,7 @@ public class ElevatorUp extends Command {
 
     @Override
     public void execute() {
-        elevator.move(frc.robot.Constants.ElevatorConstants.ELEVATOR_SPEED);
+        elevator.setMotorSpeed(frc.robot.Constants.ElevatorConstants.ELEVATOR_SPEED);
     }
 
     @Override

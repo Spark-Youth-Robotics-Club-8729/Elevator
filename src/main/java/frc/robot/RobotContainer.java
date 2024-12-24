@@ -16,9 +16,9 @@ public class RobotContainer {
 
     private void configureButtonBindings() {
         new JoystickButton(joystick, frc.robot.Constants.JoystickConstants.UP_BUTTON)
-            .whileHeld(new ElevatorUp(elevator));
+            .whileTrue(new ElevatorUp(elevator));
 
         new JoystickButton(joystick, frc.robot.Constants.JoystickConstants.DOWN_BUTTON)
-            .whileHeld(new ElevatorDown(elevator));
+            .whileTrue(new ElevatorDown(elevator));
     }
 }

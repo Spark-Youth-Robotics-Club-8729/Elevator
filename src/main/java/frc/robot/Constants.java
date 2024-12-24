@@ -14,4 +14,9 @@ public final class Constants {
         public static final double DEADZONE = 0.05; // Add a small deadzone to prevent jitter
     }
 
+    public static final class ElevatorConstants{
+        public static final double ELEVATOR_SPEED = 0.5; // Speed of the elevator
+        public static final double ELEVATOR_ACCELERATION = 0.5; // Acceleration
+    }
+
 }
