@@ -1,9 +1,9 @@
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.KrakenMotorSubsystem;
 
-public class ElevatorUp extends CommandBase {
+public class ElevatorUp extends Command {
     private final KrakenMotorSubsystem elevator;
 
     public ElevatorUp(KrakenMotorSubsystem elevator) {
@@ -18,7 +18,7 @@ public class ElevatorUp extends CommandBase {
 
     @Override
     public void end(boolean interrupted) {
-        elevator.stop();
+        elevator.stopMotor();
     }
 
     @Override

@@ -7,7 +7,7 @@ import frc.robot.commands.ElevatorDown;
 import frc.robot.subsystems.KrakenMotorSubsystem;
 
 public class RobotContainer {
-    private final KrakenMotorSubsystem elevator = new KrakenMotorSubsystem();
+    private final KrakenMotorSubsystem elevator = new KrakenMotorSubsystem(0);
     private final Joystick joystick = new Joystick(frc.robot.Constants.JoystickConstants.JOYSTICK_PORT);
 
     public RobotContainer() {

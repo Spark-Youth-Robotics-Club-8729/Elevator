@@ -1,19 +1,17 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import com.ctre.phoenix.motorcontrol.MotorController;
 
 //import com.ctre.phoenix.motorcontrol.TalonFXControlMode;
 //import com.ctre.phoenix.motorcontrol.can.TalonFX;
 import com.ctre.phoenix6.hardware.TalonFX;
 // import com.ctre.phoenix6.configs.TalonFXConfiguration;
 // import com.ctre.phoenix6.configs.TalonFXConfigurator;
-import com.revrobotics.RelativeEncoder;
 
 public class KrakenMotorSubsystem extends SubsystemBase {
 
   // Motor controller for Kraken motor
-  private final MotorController krakenMotor;
+  private final TalonFX krakenMotor;
 
   // Constructor: Initialize the Kraken motor with TalonFX
   public KrakenMotorSubsystem(int motorPort) {
