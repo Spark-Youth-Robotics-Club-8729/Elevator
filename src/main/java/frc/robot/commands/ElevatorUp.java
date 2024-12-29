@@ -1,21 +1,26 @@
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.KrakenMotorSubsystem;
 
-public class ElevatorUp extends Command {
+public class ElevatorUp extends CommandBase {
     private final KrakenMotorSubsystem elevator;
+    private final double speed;
 
-    public ElevatorUp(KrakenMotorSubsystem elevator) {
+
+    public ElevatorUp(KrakenMotorSubsystem elevator, double speed) {
         this.elevator = elevator;
+        this.speed = speed;
         addRequirements(elevator);
     }
 
+    // when button pressed rotate the positive way
     @Override
     public void execute() {
-        elevator.setMotorSpeed(frc.robot.Constants.ElevatorConstants.ELEVATOR_SPEED);
+        elevator.setMotorSpeed(speed);
     }
 
+    // when button not pressed stop rotating
     @Override
     public void end(boolean interrupted) {
         elevator.stopMotor();
