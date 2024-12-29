@@ -19,6 +19,10 @@ import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 
+import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.subsystems.UltrasonicSensorSubsystem;
+import frc.robot.commands.PrintSensorDistanceCommand;
+
 
 /**
  * This class is where the bulk of the robot should be declared. Since
@@ -45,6 +49,23 @@ public class RobotContainer {
         operatorJoystick.b().whileTrue(new ElevatorUp(elevatorSubsystem, Constants.MotorConstants.ELE_SPEED));
         operatorJoystick.a().whileTrue(new ElevatorDown(elevatorSubsystem, Constants.MotorConstants.ELE_SPEED));
         
+    }
+    
+    private final UltrasonicSensorSubsystem ultrasonicSensorSubsystem =
+            new UltrasonicSensorSubsystem(0, 1); // Adjust channels as needed
+    private final PrintSensorDistanceCommand printSensorDistanceCommand =
+            new PrintSensorDistanceCommand(ultrasonicSensorSubsystem);
 
+    public RobotContainer() {
+        configureBindings();
+    }
+
+    private void configureBindings() {
+        // runs automatically
+        ultrasonicSensorSubsystem.setDefaultCommand(printSensorDistanceCommand);
+    }
+
+    public Command getAutonomousCommand() {
+        return null;
     }
 }
