@@ -1,6 +1,7 @@
 // Copyright (c) FIRST and other WPILib contributors.
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
+
 package frc.robot;
 
 import frc.robot.Constants.JoystickConstants;
@@ -41,8 +42,8 @@ public class RobotContainer {
 
     /* Triggering commands with these buttons being pressed */
     private void configureBindings() {
-        operatorJoystick.b().onTrue(new ElevatorUp(elevatorSubsystem));
-        operatorJoystick.a().onTrue(new ElevatorDown(elevatorSubsystem));
+        operatorJoystick.b().onTrue(new ElevatorUp(elevatorSubsystem, Constants.MotorConstants.ELE_SPEED));
+        operatorJoystick.a().onTrue(new ElevatorDown(elevatorSubsystem, Constants.MotorConstants.ELE_SPEED));
         
 
     }
