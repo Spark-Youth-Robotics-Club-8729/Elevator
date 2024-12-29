@@ -42,8 +42,8 @@ public class RobotContainer {
 
     /* Triggering commands with these buttons being pressed */
     private void configureBindings() {
-        operatorJoystick.b().onTrue(new ElevatorUp(elevatorSubsystem, Constants.MotorConstants.ELE_SPEED));
-        operatorJoystick.a().onTrue(new ElevatorDown(elevatorSubsystem, Constants.MotorConstants.ELE_SPEED));
+        operatorJoystick.b().whileTrue(new ElevatorUp(elevatorSubsystem, Constants.MotorConstants.ELE_SPEED));
+        operatorJoystick.a().whileTrue(new ElevatorDown(elevatorSubsystem, Constants.MotorConstants.ELE_SPEED));
         
 
     }
